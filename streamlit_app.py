@@ -27,8 +27,10 @@ except KeyError:
     st.stop()
 
 
-AGRICULTURE_API_URL = "https.api.data.gov.in/resource/2cd35c5a-e278-4a7c-8d1f-63316dbef7a6"
-RAINFALL_API_URL = "https.api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f"
+# --- FIXED URLS ---
+AGRICULTURE_API_URL = "https://api.data.gov.in/resource/2cd35c5a-e278-4a7c-8d1f-63316dbef7a6"
+RAINFALL_API_URL = "https://api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f"
+# ------------------
 
 # Define our keyword lists (moved from backend)
 SUPPORTED_CROPS = {
@@ -148,8 +150,8 @@ def answer_question(crop_name, region_name):
     answer_string += merged_data.to_string(index=False)
     
     citations = [
-        {"source": "All India Production of Principal Crops", "url": "https.api.data.gov.in/resource/2cd35c5a-e278-4a7c-8d1f-63316dbef7a6"},
-        {"source": "Sub Divisional Monthly Rainfall (1901-2017)", "url": "https.api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f"}
+        {"source": "All India Production of Principal Crops", "url": "https://api.data.gov.in/resource/2cd35c5a-e278-4a7c-8d1f-63316dbef7a6"},
+        {"source": "Sub Divisional Monthly Rainfall (1901-2017)", "url": "https://api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f"}
     ]
     
     return answer_string, citations
@@ -201,3 +203,4 @@ if prompt := st.chat_input("Ask a question about crops and climate..."):
                         st.caption(f"API Endpoint: {source['url']}")
             
             st.session_state.messages.append(bot_message)
+
